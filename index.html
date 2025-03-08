@@ -77,17 +77,38 @@
         <h1>Welcome to Agent Program!</h1>
         <p>Click the button below to join as an agent.</p>
 
-        <!-- WhatsApp बटन -->
         <a class="whatsapp-button" href="#" onclick="startCountdown(event)">💬 Join on WhatsApp</a>
 
-        <!-- काउंटडाउन -->
         <p class="countdown" id="countdown">Redirecting in <span id="timer">60</span> seconds...</p>
     </div>
 
     <script>
-        function startCountdown(event) {
-            event.preventDefault(); // WhatsApp लिंक को तुरंत खोलने से रोकेगा
+        const whatsappNumbers = [
+            "+917283012923",
+            "+917319475764",
+            "+917481928571",
+            "+918172916982",
+            "+917891660504",
+            "+919797461318",
+            "+918237466082",
+            "+919666443642",
+            "+918237466082",
+            "+918862965812",
+            "+916359318970",
+            "+917319475764",
+            "+919636663757",
+            "+917384174838"
+        ];
 
+        let currentIndex = Math.floor(Math.random() * whatsappNumbers.length);
+
+        function getNextNumber() {
+            currentIndex = (currentIndex + 1) % whatsappNumbers.length;
+            return "https://wa.me/" + whatsappNumbers[currentIndex].replace("+", "");
+        }
+
+        function startCountdown(event) {
+            event.preventDefault();
             document.querySelector(".whatsapp-button").style.display = "none";
             document.getElementById("countdown").style.display = "block";
 
@@ -100,7 +121,7 @@
 
                 if (timeLeft <= 0) {
                     clearInterval(countdownInterval);
-                    window.location.href = "https://wa.me/919876543210"; // WhatsApp Link
+                    window.location.href = getNextNumber();
                 }
             }, 1000);
         }
