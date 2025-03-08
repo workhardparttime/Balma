@@ -40,11 +40,11 @@
             font-weight: 400;
         }
 
-        .whatsapp-button {
+        .telegram-button {
             display: inline-block;
             margin-top: 20px;
             padding: 12px 25px;
-            background: linear-gradient(to right, #25D366, #128C7E);
+            background: linear-gradient(to right, #0088cc, #005f99);
             color: white;
             text-decoration: none;
             border-radius: 50px;
@@ -53,14 +53,14 @@
             border: none;
             cursor: pointer;
             transition: all 0.3s ease-in-out;
-            box-shadow: 0 5px 15px rgba(18, 140, 126, 0.4);
+            box-shadow: 0 5px 15px rgba(0, 136, 204, 0.4);
             position: relative;
             overflow: hidden;
         }
 
-        .whatsapp-button:hover {
+        .telegram-button:hover {
             transform: scale(1.1);
-            box-shadow: 0 8px 20px rgba(18, 140, 126, 0.6);
+            box-shadow: 0 8px 20px rgba(0, 136, 204, 0.6);
         }
 
         .countdown {
@@ -77,39 +77,17 @@
         <h1>Welcome to Agent Program!</h1>
         <p>Click the button below to join as an agent.</p>
 
-        <a class="whatsapp-button" href="#" onclick="startCountdown(event)">💬 Join on WhatsApp</a>
+        <a class="telegram-button" href="#" onclick="startCountdown(event)">📢 Join on Telegram</a>
 
         <p class="countdown" id="countdown">Redirecting in <span id="timer">60</span> seconds...</p>
     </div>
 
     <script>
-        const whatsappNumbers = [
-            "+917283012923",
-            "+917319475764",
-            "+917481928571",
-            "+918172916982",
-            "+917891660504",
-            "+919797461318",
-            "+918237466082",
-            "+919666443642",
-            "+918237466082",
-            "+918862965812",
-            "+916359318970",
-            "+917319475764",
-            "+919636663757",
-            "+917384174838"
-        ];
-
-        let currentIndex = Math.floor(Math.random() * whatsappNumbers.length);
-
-        function getNextNumber() {
-            currentIndex = (currentIndex + 1) % whatsappNumbers.length;
-            return "https://wa.me/" + whatsappNumbers[currentIndex].replace("+", "");
-        }
+        const telegramLink = "https://t.me/SFAEarnings";
 
         function startCountdown(event) {
             event.preventDefault();
-            document.querySelector(".whatsapp-button").style.display = "none";
+            document.querySelector(".telegram-button").style.display = "none";
             document.getElementById("countdown").style.display = "block";
 
             let timeLeft = 60;
@@ -121,7 +99,7 @@
 
                 if (timeLeft <= 0) {
                     clearInterval(countdownInterval);
-                    window.location.href = getNextNumber();
+                    window.location.href = telegramLink;
                 }
             }, 1000);
         }
