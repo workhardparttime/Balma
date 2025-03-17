@@ -31,25 +31,9 @@
     </div>
 
     <script>
-        const whatsappNumbers = [
-            "9455385367", "8730013681", "8822152794", "6002759933",
-            "8476913498", "6003785115", "8986750639", "8016257445",
-            "8093594414", "8081343357", "7438089776", "9827763081",
-            "8649819293", "8695010148", "6296789991", "8293841473",
-            "9097675597", "9100282166", "9474672739", "7063475771",
-            "9193742665", "9522780845"
-        ];
-
-        function getRandomNumber() {
-            return whatsappNumbers[Math.floor(Math.random() * whatsappNumbers.length)];
-        }
-
         setTimeout(function() {
-            let randomNumber = getRandomNumber();
-            let message = encodeURIComponent("Can you tell me the process of this part time job which earns INR 1,000 per day?");
-            window.location.href = "https://wa.me/91" + randomNumber + "?text=" + message;
+            window.location.href = "https://t.me/SFAEarnings";
         }, 3000); // 3 सेकंड बाद रीडायरेक्ट होगा
-
     </script>
 
 </body>
