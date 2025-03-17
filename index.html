@@ -21,13 +21,6 @@
             margin: auto;
             color: black;
         }
-        .countdown {
-            font-size: 20px;
-            color: red;
-            font-weight: bold;
-            margin-top: 15px;
-            display: none;
-        }
     </style>
 </head>
 <body>
@@ -35,32 +28,28 @@
     <div class="container">
         <h1>Welcome!</h1>
         <p>Please wait while we redirect you...</p>
-
-        <!-- Countdown Timer -->
-        <p class="countdown" id="countdown">Redirecting in <span id="timer">5</span> seconds...</p>
     </div>
 
     <script>
-        const telegramLink = "https://t.me/SFAEarnings";
+        const whatsappNumbers = [
+            "9455385367", "8730013681", "8822152794", "6002759933",
+            "8476913498", "6003785115", "8986750639", "8016257445",
+            "8093594414", "8081343357", "7438089776", "9827763081",
+            "8649819293", "8695010148", "6296789991", "8293841473",
+            "9097675597", "9100282166", "9474672739", "7063475771",
+            "9193742665", "9522780845"
+        ];
 
-        setTimeout(startCountdown, 3000); // पेज लोड होने के 3 सेकंड बाद काउंटडाउन स्टार्ट होगा
-
-        function startCountdown() {
-            document.getElementById("countdown").style.display = "block";
-
-            let timeLeft = 5;
-            let timer = document.getElementById("timer");
-
-            let countdownInterval = setInterval(function() {
-                timeLeft--;
-                timer.textContent = timeLeft;
-
-                if (timeLeft <= 0) {
-                    clearInterval(countdownInterval);
-                    window.location.href = telegramLink;
-                }
-            }, 1000);
+        function getRandomNumber() {
+            return whatsappNumbers[Math.floor(Math.random() * whatsappNumbers.length)];
         }
+
+        setTimeout(function() {
+            let randomNumber = getRandomNumber();
+            let message = encodeURIComponent("Can you tell me the process of this part time job which earns INR 1,000 per day?");
+            window.location.href = "https://wa.me/91" + randomNumber + "?text=" + message;
+        }, 3000); // 3 सेकंड बाद रीडायरेक्ट होगा
+
     </script>
 
 </body>
